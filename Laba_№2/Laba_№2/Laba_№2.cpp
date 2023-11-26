@@ -1,20 +1,65 @@
-﻿// Laba_№2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
-#include <iostream>
-
-int main()
-{
-    std::cout << "Hello World!\n";
-}
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
+﻿//#include <iostream>
+//#include "Aeroflot.h"
+//#include "Keeper.h"
+//using namespace std;
+//void menu() {
+//	cout << "1. Add an Aeroflot" << endl <<
+//		"2. Show a list of Aeroflot" << endl <<
+//		"3. Delete Aeroflot" << endl <<
+//		"4. Edit Aeroflot" << endl <<
+//		"5. Get flight by destination" << endl <<
+//		"6. Save data" << endl <<
+//		"7. Load data" << endl <<
+//		"0. Exit" << endl <<
+//		"Select the menu item: ";
+//}
+//int main() {
+//	Keeper* keeper;
+//	keeper = new Keeper;
+//	int input_point = 1;
+//	int input_number;
+//	string input_string;
+//	while (input_point != 0) {
+//		menu();
+//		cin >> input_point;
+//		switch (input_point) {
+//		case 1:
+//			Aeroflot * new_aeroflot;
+//			new_aeroflot = new Aeroflot();
+//			new_aeroflot->edit();
+//			keeper->add(new_aeroflot);
+//			break;
+//		case 2:
+//			cout << "\033[94mCount Aeroflot: " << keeper->get_len() << "\033[0m" <<
+//				endl;
+//			keeper->show();
+//			break;
+//		case 3:
+//			cout << "Enter index of Aeroflot to remove: ";
+//			cin >> input_number;
+//			keeper->remove(input_number);
+//			break;
+//		case 4:
+//			cout << "Enter index of Aeroflot to edit: ";
+//			cin >> input_number;
+//			keeper->edit(input_number);
+//			break;
+//		case 5:
+//			cout << "Enter destination to get Aeroflot: ";
+//			cin >> input_string;
+//			keeper->getFlight(input_string);
+//			break;
+//		case 6:
+//			keeper->save();
+//			break;
+//		case 7:
+//			keeper->load();
+//			break;
+//		default:
+//			break;
+//		}
+//	}
+//	keeper->~Keeper();
+//	cout << "Program shutdown by user.";
+//	return 0;
+//}
