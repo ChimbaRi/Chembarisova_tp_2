@@ -105,12 +105,15 @@ void List::FindTrain() {
 	if (Length == 0)
 		throw 0;
 	string find;
-	cin >> find;
+	cout << "Введите пункт назначения: ";
+	cin.clear();
+	cin.ignore();
+	getline(cin, find);
 	Train* T = HeadT->GetNext();
 	while (T != nullptr) {
-		if (T->GetTrainNumber() == find)
-			cout << T;
-		T->GetNext();
+		if (T->GetNameOfDestination() == find)
+			cout << *T;
+		T = T->GetNext();
 	}
 }
 
