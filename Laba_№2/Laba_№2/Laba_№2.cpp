@@ -1,65 +1,77 @@
-﻿//#include <iostream>
-//#include "Aeroflot.h"
-//#include "Keeper.h"
-//using namespace std;
-//void menu() {
-//	cout << "1. Add an Aeroflot" << endl <<
-//		"2. Show a list of Aeroflot" << endl <<
-//		"3. Delete Aeroflot" << endl <<
-//		"4. Edit Aeroflot" << endl <<
-//		"5. Get flight by destination" << endl <<
-//		"6. Save data" << endl <<
-//		"7. Load data" << endl <<
-//		"0. Exit" << endl <<
-//		"Select the menu item: ";
-//}
-//int main() {
-//	Keeper* keeper;
-//	keeper = new Keeper;
-//	int input_point = 1;
-//	int input_number;
-//	string input_string;
-//	while (input_point != 0) {
-//		menu();
-//		cin >> input_point;
-//		switch (input_point) {
-//		case 1:
-//			Aeroflot * new_aeroflot;
-//			new_aeroflot = new Aeroflot();
-//			new_aeroflot->edit();
-//			keeper->add(new_aeroflot);
-//			break;
-//		case 2:
-//			cout << "\033[94mCount Aeroflot: " << keeper->get_len() << "\033[0m" <<
-//				endl;
-//			keeper->show();
-//			break;
-//		case 3:
-//			cout << "Enter index of Aeroflot to remove: ";
-//			cin >> input_number;
-//			keeper->remove(input_number);
-//			break;
-//		case 4:
-//			cout << "Enter index of Aeroflot to edit: ";
-//			cin >> input_number;
-//			keeper->edit(input_number);
-//			break;
-//		case 5:
-//			cout << "Enter destination to get Aeroflot: ";
-//			cin >> input_string;
-//			keeper->getFlight(input_string);
-//			break;
-//		case 6:
-//			keeper->save();
-//			break;
-//		case 7:
-//			keeper->load();
-//			break;
-//		default:
-//			break;
-//		}
-//	}
-//	keeper->~Keeper();
-//	cout << "Program shutdown by user.";
-//	return 0;
-//}
+﻿#include "List.h"
+#include <Windows.h>
+
+void Menu() {
+	cout << "Выберите действие: " << endl;
+	cout << "0. Завершение работы программы" << endl;
+	cout << "1. Вывод списка на экран" << endl;
+	cout << "2. Добавление элемента" << endl;
+	cout << "3. Удаление элемента" << endl;
+	cout << "4. Редактирование" << endl;
+	cout << "5. Поиск" << endl;
+}
+
+void main() {
+	setlocale(LC_ALL, "Rus");
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	List list;
+	int a = 1;
+	char c;
+	while (1) {
+		Menu();
+		cin >> a;
+		switch (a) {
+		case 0:
+			return;
+		case 1:
+			list.Print();
+			break;
+		case 2:
+			list.AddTrain();
+			break;
+		case 3:
+			try {
+				list.DeleteTrain();
+			}
+			catch (int e)
+			{
+				if (e == -1)
+					cout << "Исключение: неверный индекс" << endl;
+				if (e == 0)
+					cout << "Исключение: объекты еще не добавлены" << endl;
+			}
+			break;
+		case 4: 
+			try {
+				list.EditTrain();
+			}
+			catch (int e)
+			{
+				if (e == -1)
+					cout << "Исключение: неверный индекс" << endl;
+				if (e == 0)
+					cout << "Исключение: объекты еще не добавлены" << endl;
+			}
+			break;
+		case 5:
+			try {
+				list.FindTrain();
+			}
+			catch (int e)
+			{
+				if (e == 0)
+					cout << "Исключение: объекты еще не добавлены" << endl;
+			}
+			break;
+		case 6:
+			list.FlipFlag();
+			break;
+		default:
+			cout << "Неизвестное действие" << endl;
+		}
+		cout << "Для продолжения введите любой символ: ";
+		cin >> c;
+		system("cls");
+	}
+}
